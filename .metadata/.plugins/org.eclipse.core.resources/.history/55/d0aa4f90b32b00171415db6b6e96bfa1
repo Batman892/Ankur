@@ -1,0 +1,94 @@
+package com.qa.reve.Login;
+
+import java.io.FileInputStream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import jxl.Sheet;
+import jxl.Workbook;
+
+public class Login 
+{
+	WebDriver driver;
+
+	String email;
+	String password;
+
+	By Email = By.xpath(".//*[@id='loginID']");
+	By Password = By.xpath(".//*[@id='password']");
+	By Login = By.xpath("html/body/div[1]/div[5]/form/div/input[5]");
+    By Pop =   By.xpath(".//*[@id='billexpire']/div/div/div[3]/a");
+
+	public Login (WebDriver driver)
+	{
+	 this.driver = driver;
+	 }
+
+	public void login()
+	{
+		FileInputStream fis = new FileInputStream("email.xls");
+	    Workbook wb = Workbook.getWorkbook(fis);
+	    Sheet sh= wb.getSheet(2);
+	    int rows=sh.getRows();
+	    System.out.println(rows);
+	    
+	 try
+	 {
+	    for(int i=1; i<rows; i++)
+	    {
+	        email=sh.getCell(0,i).getContents();
+	        password=sh.getCell(1,i).getContents();
+	        
+	        Thread.sleep(3000);
+	        WebElement element1 = driver.findElement(Email);
+	        WebDriverWait wait = new WebDriverWait(driver, 10);
+	        wait.until(ExpectedConditions.elementToBeClickable(element1)).sendKeys(email);
+	        JavascriptExecutor js = (JavascriptExecutor)driver;
+	  	    js.executeScript("alert('Email id Entered');");
+	  	    Thread.sleep(2000);
+	  	    driver.switchTo().alert().accept();
+	       
+	        WebElement element2 = driver.findElement(Password);
+	        WebDriverWait wait1 = new WebDriverWait(driver, 10);
+	        wait1.until(ExpectedConditions.elementToBeClickable(element2)).sendKeys(password);
+	        js.executeScript("alert('Password Entered');");
+	    	Thread.sleep(2000);
+	    	driver.switchTo().alert().accept();
+	        
+		
+		
+		
+		
+		
+	}
+	
+	
+	 
+	 public void handlingAlert() throws InterruptedException
+	 {   
+		 WebElement element = driver.findElement(Pop);
+		 JavascriptExecutor js = (JavascriptExecutor)driver;
+		 js.executeScript("arguments[0].click();", element);
+		
+		 /* driver.findElement(By.xpath(".//*[@id='billexpire']/div/div/div[3]/a")).click();
+		    Alert alert=driver.switchTo().alert();
+			System.out.println(alert.getText());
+			alert.accept();*/
+		 }
+	 
+     //////Base Method///////////
+	public void base() throws InterruptedException
+	{
+		enterEmail();
+		enterPassword();
+		clickSignInbutton();
+		handlingAlert();
+		
+	  }	
+    }
+	

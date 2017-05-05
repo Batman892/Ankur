@@ -1,0 +1,77 @@
+package com.qa.reve.Base;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.qa.reve.AddToken.AddToken;
+import com.qa.reve.Login.Login;
+//import com.qa.reve.addusers.AddUser;
+
+import jxl.read.biff.BiffException;
+
+public class Base 
+{
+	public static WebDriver driver;
+	static Properties prop = new Properties(); 
+	static String Url;
+	
+	public static void browserlaunch()
+	 {   
+         if (prop.getProperty("Browser").equalsIgnoreCase("chrome")) 
+			{
+				System.setProperty("webdriver.chrome.driver", "D://Chrome driver//chromedriver.exe");
+				driver = new ChromeDriver();
+
+			} 
+         else if (prop.getProperty("Browser").equalsIgnoreCase("firefox")) 
+			{
+				
+				driver = new FirefoxDriver();
+			} 
+         
+         else if (prop.getProperty("Browser").equalsIgnoreCase("edge")) 
+			{
+				
+        	 System.setProperty("webdriver.edge.driver", "D://Edgedriver//MicrosoftWebDriver.exe");
+        	 WebDriver driver = new EdgeDriver();
+			} 
+	 }
+	public static void main (String args []) throws InterruptedException, BiffException, IOException
+	{   
+		 prop.load(new FileInputStream("Browser.txt")); 
+	     browserlaunch();
+		 driver.get(prop.getProperty("Url"));
+		/*ChromeOptions options = new ChromeOptions();  
+		options.addArguments("chrome.switches","--disable-extensions");          
+		new DesiredCapabilities();
+		DesiredCapabilities caps = DesiredCapabilities.chrome();
+		caps.setCapability(ChromeOptions.CAPABILITY, options);
+		driver = new ChromeDriver(caps);*/
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		
+		Login objLogin = new Login(driver);
+		objLogin.base();
+		
+		/*AddUser objAddUser = new AddUser (driver);
+		objAddUser.base();*/
+		
+		AddToken objAddToken = new AddToken(driver);
+		objAddToken.base();
+		
+				
+	}
+		
+}

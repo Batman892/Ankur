@@ -1,0 +1,53 @@
+package com.qa.reve.Addservices;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class AddServices 
+{
+WebDriver driver;
+
+By Services = By.xpath(".//*[@id='services']/a");
+By AddServices = By.xpath(".//*[@id='contentWindow']/div/div/div[2]/button");
+By ServiceName = By.Xpath(".//*[@id='con']/input[3]");
+
+public AddServices (WebDriver driver)
+{
+  this.driver = driver;	
+ }
+
+public void clickServices() throws InterruptedException
+{
+	  WebElement element = driver.findElement(Services);
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();", element);
+	  executor.executeScript("alert('Services clicked');");
+	  Thread.sleep(2000);
+	  driver.switchTo().alert().accept();
+  }
+
+public void clickAddServices() throws InterruptedException
+{
+	  WebElement element = driver.findElement(AddServices);
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();", element);
+	  executor.executeScript("alert('AddServices clicked');");
+	  Thread.sleep(2000);
+	  driver.switchTo().alert().accept();
+   }
+
+public void enternewService()
+{
+	driver.findElement(By.xpath(".//*[@id='con']/input[3]")).
+
+ }
+
+
+
+
+
+
+
+}

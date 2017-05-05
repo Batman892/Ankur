@@ -1,0 +1,94 @@
+package com.qa.reve.Addservices;
+
+import java.io.FileInputStream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import jxl.Sheet;
+import jxl.Workbook;
+
+public class AddServices 
+{
+WebDriver driver;
+
+String service;
+
+By Services = By.xpath(".//*[@id='services']/a");
+By AddServices = By.xpath(".//*[@id='contentWindow']/div/div/div[2]/button");
+By ServiceName = By.xpath(".//*[@id='con']/input[3]");
+
+public AddServices (WebDriver driver)
+{
+  this.driver = driver;	
+ }
+
+public void clickServices() throws InterruptedException
+{
+	  WebElement element = driver.findElement(ServiceName);
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();", element);
+	  executor.executeScript("alert('Services clicked');");
+	  Thread.sleep(2000);
+	  driver.switchTo().alert().accept();
+  }
+
+public void clickAddServices() throws InterruptedException
+{
+	  WebElement element = driver.findElement(AddServices);
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();", element);
+	  executor.executeScript("alert('AddServices clicked');");
+	  Thread.sleep(2000);
+	  driver.switchTo().alert().accept();
+   }
+
+public void enternewService()
+{
+	 FileInputStream fis = new FileInputStream("email.xls");
+	    Workbook wb = Workbook.getWorkbook(fis);
+	    Sheet sh= wb.getSheet(3);
+	    int rows=sh.getRows();
+	    System.out.println(rows);
+	    
+	 try
+	 {
+	    for(int i=1; i<rows; i++)
+	    {
+	      WebElement element = driver.findElement();
+	      
+	        services=sh.getCell(0,i).getContents();
+	        Serial=sh.getCell(1,i).getContents();
+	        
+	        Thread.sleep(5000);
+	        WebElement element1 = driver.findElement(token);
+	        WebDriverWait wait = new WebDriverWait(driver, 10);
+	        wait.until(ExpectedConditions.elementToBeClickable(element1)).sendKeys(Token);
+	       
+	        WebElement element2 = driver.findElement(serial);
+	        WebDriverWait wait1 = new WebDriverWait(driver, 10);
+	        wait1.until(ExpectedConditions.elementToBeClickable(element2)).sendKeys(Serial);
+	        driver.findElement(By.xpath(".//*[@id='con']/button[2]")).click();
+	        
+	   }   
+	 }
+	    
+	 catch(Exception e)
+	    {
+	     e.printStackTrace();
+	    }
+
+ }
+
+
+
+
+
+
+
+}

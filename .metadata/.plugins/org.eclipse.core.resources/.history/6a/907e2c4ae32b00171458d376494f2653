@@ -1,0 +1,6 @@
+# Browser Setup
+#Browser Name
+#Browser URL
+
+Browser= edge
+Url:https://dashboard.revesecure.com/login/

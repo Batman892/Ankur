@@ -1,0 +1,7 @@
+# Browser Setup
+#Browser Name
+#Browser URL
+
+
+Browser= chrome
+Url:https://dashboard.revesecure.com/login/

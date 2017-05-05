@@ -1,0 +1,74 @@
+package com.qa.reve.Login;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Login 
+{
+	WebDriver driver;
+
+	String email;
+	String password;
+
+	By Email = By.xpath(".//*[@id='loginID']");
+	By Login = By.xpath("html/body/div[1]/div[5]/form/div/input[5]");
+    By Pop =   By.xpath(".//*[@id='billexpire']/div/div/div[3]/a");
+
+	public Login (WebDriver driver)
+	{
+	 this.driver = driver;
+	 }
+
+	public void enterEmail() throws InterruptedException
+	{
+	  driver.findElement(Email).sendKeys(email);	
+	  JavascriptExecutor js = (JavascriptExecutor)driver;
+	  js.executeScript("alert('Email id Entered');");
+	  Thread.sleep(2000);
+	  driver.switchTo().alert().accept();
+	  }
+
+	public void enterPassword() throws InterruptedException
+	{
+    driver.findElement(By.name("password")).sendKeys(password);
+	JavascriptExecutor js = (JavascriptExecutor)driver;
+	js.executeScript("alert('Password Entered');");
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();
+	 }
+
+	public void clickSignInbutton() throws InterruptedException
+	{
+	driver.findElement(Login).click();
+	JavascriptExecutor js = (JavascriptExecutor)driver;
+	js.executeScript("alert('sign up button clicked');");
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();
+	}
+	
+	 
+	 public void handlingAlert() throws InterruptedException
+	 {   
+		 WebElement element = driver.findElement(Pop);
+		 JavascriptExecutor js = (JavascriptExecutor)driver;
+		 js.executeScript("arguments[0].click();", element);
+		
+		 /* driver.findElement(By.xpath(".//*[@id='billexpire']/div/div/div[3]/a")).click();
+		    Alert alert=driver.switchTo().alert();
+			System.out.println(alert.getText());
+			alert.accept();*/
+		 }
+	 
+     //////Base Method///////////
+	public void base() throws InterruptedException
+	{
+		enterEmail();
+		enterPassword();
+		clickSignInbutton();
+		handlingAlert();
+		
+	  }	
+    }
+	

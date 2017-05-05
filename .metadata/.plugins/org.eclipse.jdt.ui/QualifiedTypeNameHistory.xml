@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.qa.reve.revesecure.signup.SignUp"/>
+<fullyQualifiedTypeName name="com.qa.reve.revesecure.linkcheck.LinkCheck"/>
+<fullyQualifiedTypeName name="com.qa.reve.revesecure.dashboard.Dashboard"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.JavascriptExecutor"/>
+<fullyQualifiedTypeName name="java.util.ResourceBundle"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="com.qa.reve.Login.Login"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Alert"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeOptions"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="com.qa.reve.addusers.AddUser"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="jxl.Workbook"/>
+<fullyQualifiedTypeName name="jxl.Sheet"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.InvalidSelectorException"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.edge.EdgeDriver"/>
+<fullyQualifiedTypeName name="com.qa.reve.Addservices.AddServices"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.ie.InternetExplorerDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.remote.DesiredCapabilities"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Wait"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.FluentWait"/>
+<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.NoSuchElementException"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Select"/>
+</qualifiedTypeNameHistroy>
