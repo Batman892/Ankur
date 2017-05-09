@@ -22,7 +22,7 @@ import com.qa.reve.addusers.AddUser;
 
 import jxl.read.biff.BiffException;
 
-public class Base 
+public class Base
 {
 	public static WebDriver driver;
 	static Properties prop = new Properties(); 

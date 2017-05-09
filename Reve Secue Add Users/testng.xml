@@ -5,7 +5,7 @@
 
 	<test name="baseClass">
 		<classes>
-		<class name="Base.Base"/>
+		<class name="com.qa.reve.Base.Base"/>
 		</classes>	
 	</test>
 
