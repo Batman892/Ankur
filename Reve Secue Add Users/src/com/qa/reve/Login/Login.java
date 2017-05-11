@@ -81,23 +81,23 @@ public class Login
 	    }
 	}
 	
-   public void handlingAlert() throws InterruptedException
+ /*  public void handlingAlert() throws InterruptedException
 	 {   
 		 WebElement element = driver.findElement(Pop);
 		 JavascriptExecutor js = (JavascriptExecutor)driver;
 		 js.executeScript("arguments[0].click();", element);
 		
-		 /* driver.findElement(By.xpath(".//*[@id='billexpire']/div/div/div[3]/a")).click();
+		  driver.findElement(By.xpath(".//*[@id='billexpire']/div/div/div[3]/a")).click();
 		    Alert alert=driver.switchTo().alert();
 			System.out.println(alert.getText());
-			alert.accept();*/
-		 }
+			alert.accept();
+		 }*/
 	 
      //////Base Method///////////
 	public void base() throws InterruptedException, BiffException, IOException
 	{
 		login();
-		handlingAlert();
+		//handlingAlert();
 		
 	  }	
     }

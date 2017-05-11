@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 
 import com.qa.reve.AddToken.AddToken;
 import com.qa.reve.Addservices.AddServices;
+import com.qa.reve.Dashboardlink.Dashboard;
 import com.qa.reve.Login.Login;
 import com.qa.reve.addusers.AddUser;
 
@@ -81,26 +82,32 @@ public class Base
 		objLogin.base();
 		}
 		
-		@Test (priority = 1)
+		@Test (priority = 1,enabled = false)
 		public void verifyAddUser() throws BiffException, InterruptedException, IOException
 		{
 		AddUser objAddUser = new AddUser (driver);
 		objAddUser.base();
 		}
 		
-		@Test (priority = 3)
+		@Test (priority = 4,enabled =false)
 		public void verifyAddServices() throws BiffException, InterruptedException, IOException
 		{
 		AddServices objAddServices = new AddServices(driver);
 		objAddServices.base();
 		}
 		
-		@Test (priority = 2)
+		@Test (priority = 2,enabled = false)
 		public void verifyAddToken() throws BiffException, InterruptedException, IOException
 		{
 		AddToken objAddToken = new AddToken(driver);
 		objAddToken.base();
 		}
 		
+		@Test(priority = 3,enabled = true)
+		public void verifyDashboard() throws InterruptedException
+		{
+			Dashboard objDashboard = new Dashboard(driver);
+			objDashboard.base();
+		}
 }
 		
