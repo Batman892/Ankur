@@ -20,6 +20,7 @@ public class AddToken
   WebDriver driver;
   String Token;
   String Serial;
+  String name;
   
   By Tokens = By.xpath(".//*[@id='tokens']/a");
   By AddTokens = By.xpath(".//*[@id='contentWindow']/div/div/div[2]/button");
@@ -85,6 +86,19 @@ public void enterTokenName() throws BiffException, IOException
   	  
         Token=sh.getCell(0,i).getContents();
         Serial=sh.getCell(1,i).getContents();
+        
+        int ele = driver.findElements(By.xpath(".//*[@id='contentWindow']/div/table/tbody/tr/td[2]")).size();
+        System.out.println("no. of element: "+ ele);
+        
+        for (int j=1;j<=ele;j++)
+         { 
+           name = driver.findElement(By.xpath(".//*[@id='contentWindow']/div/table/tbody/tr["+i+"]/td[2]")).getText();
+           System.out.println(name);
+           Thread.sleep(5000);
+         }
+        
+        
+		if (Token == name )
         
         Thread.sleep(5000);
         WebElement element1 = driver.findElement(token);
